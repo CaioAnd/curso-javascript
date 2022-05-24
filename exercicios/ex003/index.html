@@ -7,17 +7,18 @@
     <title>JapaMesa</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <nav class="navbar bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.html">
                 <img src="img/icon.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
                 JapaMesa
-              </a>
+                </a>
             </div>
-          </nav>
+        </nav>
         <div class="container">
             <h1>Restaurante JapaMesa</h1>
             <h2>Tudo que você precisa em um só lugar</h2>
@@ -33,33 +34,112 @@
         <article>
             <div class="container">
                 <h2>Faça seu pedido agora!</h2>
-                <div class="row justify-content-center">
-                    <div class="card col-12 col-md-4 col-lg-4" style="width: 20rem;">
-                        <img src="img/card.jpg" class="card-img-top" alt="...">
+                <div class="row justify-content-evenly">
+                    <div class="card col-12 col-md-3 col-lg-3 mt-3">
+                        <img src="img/entrada.jpg" class="card-img-top " alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Entrada</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <select id="entrada" class="form-select" aria-label="Default select example">
+                                <option selected>Nenhum</option>
+                                <option value="1">Rolinho Primavera</option>
+                                <option value="2">Shimeji</option>
+                                <option value="3">Guioza</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="card col-12 col-md-4 col-lg-4" style="width: 20rem;">
-                        <img src="img/card.jpg" class="card-img-top" alt="...">
+                    <div class="card col-12 col-md-3 col-lg-3 mt-3">
+                        <img src="img/principal.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">Prato principal</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <select id="principal" class="form-select" aria-label="Default select example">
+                                <option selected>Nenhum</option>
+                                <option value="1">Sushi</option>
+                                <option value="2">Sashimi</option>
+                                <option value="3">Temaki</option>
+                            </select>
                         </div>
                     </div>
-                    <img src="img/foca.webp" alt="Desenho de uma foca" class="mt-1 col-12 col-md-4 col-lg-4">
+                    <div class="card col-12 col-md-3 col-lg-3 mt-3">
+                        <img src="img/bebidas.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Bebidas</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <select id="bebidas" class="form-select" aria-label="Default select example">
+                                <option value="0" selected>Nenhum</option>
+                                <option value="1">Amazake</option>
+                                <option value="2">Shochu</option>
+                                <option value="3">Umeshu</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-evenly">
+                    <div class="card col-12 col-md-3 col-lg-3 mt-3">
+                        <img src="img/sobremesa.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Sobremesa</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <select id="sobremesa" class="form-select" aria-label="Default select example">
+                                <option selected>Nenhum</option>
+                                <option value="1">TAIYAKI</option>
+                                <option value="2">DAIFUKU</option>
+                                <option value="3">WARABI MOCHI</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card col-12 col-md-3 col-lg-3 mt-3">
+                        <img src="img/pagamento.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Forma de pagamnto</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <select id="pagamento" class="form-select" aria-label="Default select example">
+                                <option value="0" selected>À vista</option>
+                                <option value="1">Cartão de crédito</option>
+                                <option value="2">Cartão de débito</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="card-botão" class="align-middle card col-12 col-md-3 col-lg-3 mt-3">
+                        <div class="card-body mt-5 row justify-content-between">
+                            <h2 class="card-title fs-2">Finalizar pedido</h2>
+                            <p class="card-text fs-5">Já escolheu o que irá pedir? Basta clicar no botão a baixo para confirmar e gerar seu pedido.</p>
+                            <button type="button" id="finalizar" class="btn mb-5 btn-primary btn-lg">Large button</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </article>
+        <div class="container">
+            <table class="col-12 col-md-1 col-lg-1 mt-1">
+                <thead>
+                    <tr>
+                        <th>Entrada</th>
+                        <th>Prato principal</th>
+                        <th>Bebidas</th>
+                        <th>Sobremesa</th>
+                        <th>Forma de pagamento</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-pacientes">
+                    <tr class="paciente" id="primeiro-paciente">
+                        <td class="info-nome">Nenhum</td>
+                        <td class="info-peso">Nenhum</td>
+                        <td class="info-altura">Nenhum</td>
+                        <td class="info-gordura">Nenhum</td>
+                        <td class="info-imc">À vista</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer>
         <div class="container">
-            <p>Restaurante JapaMesa / Contatos: Whatsapp (14) 99867-3246 / Instagram / Facebook</p>
+            <p>Restaurante JapaMesa Contatos: Whatsapp (14) 99867-3246 / <a href="">Instagram</a> / <a href="">Facebook</a></p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+#card-botão{
+    background-color: rgb(0, 176, 235);
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+#card-botão > div > h2{
+    text-align: center;
+}
+
+#card-botão > div > p{
+    text-align: justify;
+}
+
+#botao {
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 2px black;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+footer div > p > a{
+    text-decoration: none;
+    color: white;
+}
+
+footer div > p > a:hover{
+    text-decoration: underline;
+    color: rgb(193, 190, 190);
+}
+
+table{
+	width: 100%;
+	margin-bottom : .5em;
+    table-layout: fixed;
+
+}
+
+td, th {
+	padding: .7em;
+	margin: 0;
+	border: 1px solid #ccc;
+	text-align: center;
+}
