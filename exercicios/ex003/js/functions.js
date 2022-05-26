@@ -21,6 +21,7 @@ function criarTabela(){
     var opcao5 = pagamento.options[pagamento.selectedIndex].textContent;
 
     if (x < 1) {
+        var thId = document.createElement("th");
         var thEntrada = document.createElement("th");
         var thPrincipal = document.createElement("th");
         var thBebidas = document.createElement("th");
@@ -28,6 +29,7 @@ function criarTabela(){
         var thPagamento = document.createElement("th");
         var thTotal = document.createElement("th");
 
+        thId.textContent = "ID";
         thEntrada.textContent = "Entrada";
         thPrincipal.textContent = "Prato principal";
         thBebidas.textContent = "Bebidas";
@@ -40,6 +42,7 @@ function criarTabela(){
 
         tabelaCabeca.appendChild(trTabelaCabeca);
 
+        trTabelaCabeca.appendChild(thId);
         trTabelaCabeca.appendChild(thEntrada);
         trTabelaCabeca.appendChild(thPrincipal);
         trTabelaCabeca.appendChild(thBebidas);
@@ -52,12 +55,17 @@ function criarTabela(){
 
     var valorTotal = parseFloat(valor1 + valor2 + valor3 + valor4);
 
+    var tdId = document.createElement("td");
     var tdEntrada = document.createElement("td");
     var tdPrincipal = document.createElement("td");
     var tdBebidas = document.createElement("td");
     var tdSobremesa = document.createElement("td");
     var tdPagamento = document.createElement("td");
     var tdTotal = document.createElement("td");
+
+    id++;
+
+    tdId.textContent = id;
 
     opcao1 = ajustarTexto(opcao1);
     tdEntrada.textContent = opcao1;
@@ -73,6 +81,7 @@ function criarTabela(){
 
     tabelaCorpo.appendChild(trTabelaCorpo);
 
+    trTabelaCorpo.appendChild(tdId);
     trTabelaCorpo.appendChild(tdEntrada);
     trTabelaCorpo.appendChild(tdPrincipal);
     trTabelaCorpo.appendChild(tdBebidas);
@@ -82,9 +91,17 @@ function criarTabela(){
     
 }
 
+function mostraImagem(option){
+    var entrada = option.options[option.selectedIndex].textContent;
+    alert(entrada);
+}
+
 function ajustarTexto(entrada){
+    if (entrada == "Nenhum") {
+        return entrada;
+    }
     var chars = entrada.split('-');
-    return chars[0];
+    return chars[1];
 }
 
 function formataReais(valor){
