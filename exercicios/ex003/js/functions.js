@@ -1,5 +1,11 @@
-function criarTabela(){
-    event.preventDefault();
+function criarTabela(event){
+    /* if (event) {
+        event.preventDefault();
+    } */
+
+    /* event ? event.preventDefault() : null; */
+
+    event?.preventDefault();
 
     var entrada = document.getElementById("entrada");
     var opcao1 = entrada.options[entrada.selectedIndex].textContent;
@@ -91,9 +97,51 @@ function criarTabela(){
     
 }
 
-function mostraImagem(option){
-    var entrada = option.options[option.selectedIndex].textContent;
-    alert(entrada);
+function mostraImagem(entrada,divEntrada){
+
+    var imagem = divEntrada.querySelector(".imagem");
+
+    var chars = entrada.options[entrada.selectedIndex].textContent.split('-');
+
+    if (chars[0] == "#001 ") {
+        imagem.src="img/rolinho-primavera.jpg";
+    }
+    else if (chars[0] == "#002 ") {
+        imagem.src="img/shimeji.jpg";
+    }
+    else if (chars[0] == "#003 ") {
+        imagem.src="img/guioza.webp";
+    }
+    else if (chars[0] == "#004 ") {
+        imagem.src="img/sushi.jpg";
+    }
+    else if (chars[0] == "#005 ") {
+        imagem.src="img/sashimi.jpg";
+    }
+    else if (chars[0] == "#006 ") {
+        imagem.src="img/temaki.webp";
+    }
+    else if (chars[0] == "#007 ") {
+        imagem.src="img/amazake.jpeg";
+    }
+    else if (chars[0] == "#008 ") {
+        imagem.src="img/shochu.jpg";
+    }
+    else if (chars[0] == "#009 ") {
+        imagem.src="img/umeshu.jpg";
+    }
+    else if (chars[0] == "#010 ") {
+        imagem.src="img/taiyaki.jpg";
+    }
+    else if (chars[0] == "#011 ") {
+        imagem.src="img/daifuku.jpg";
+    }
+    else if (chars[0] == "#012 ") {
+        imagem.src="img/warabi-mochi.jpg";
+    }
+    else{
+        imagem.src="img/nenhum.jpg";
+    }
 }
 
 function ajustarTexto(entrada){
