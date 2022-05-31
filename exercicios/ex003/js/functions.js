@@ -7,6 +7,8 @@ function criarTabela(event){
 
     event?.preventDefault();
 
+    var nome = leNome();
+
     var entrada = document.getElementById("entrada");
     var opcao1 = entrada.options[entrada.selectedIndex].textContent;
     var valor1 = parseFloat(entrada.options[entrada.selectedIndex].value);
@@ -28,6 +30,7 @@ function criarTabela(event){
 
     if (x < 1) {
         var thId = document.createElement("th");
+        var thNome = document.createElement("th");
         var thEntrada = document.createElement("th");
         var thPrincipal = document.createElement("th");
         var thBebidas = document.createElement("th");
@@ -36,6 +39,7 @@ function criarTabela(event){
         var thTotal = document.createElement("th");
 
         thId.textContent = "ID";
+        thNome.textContent = "Nome";
         thEntrada.textContent = "Entrada";
         thPrincipal.textContent = "Prato principal";
         thBebidas.textContent = "Bebidas";
@@ -49,6 +53,7 @@ function criarTabela(event){
         tabelaCabeca.appendChild(trTabelaCabeca);
 
         trTabelaCabeca.appendChild(thId);
+        trTabelaCabeca.appendChild(thNome);
         trTabelaCabeca.appendChild(thEntrada);
         trTabelaCabeca.appendChild(thPrincipal);
         trTabelaCabeca.appendChild(thBebidas);
@@ -59,9 +64,12 @@ function criarTabela(event){
         x++;
     }
 
+    //Começa por aqui, calcular quantidade
+
     var valorTotal = parseFloat(valor1 + valor2 + valor3 + valor4);
 
     var tdId = document.createElement("td");
+    var tdNome = document.createElement("td");
     var tdEntrada = document.createElement("td");
     var tdPrincipal = document.createElement("td");
     var tdBebidas = document.createElement("td");
@@ -82,19 +90,21 @@ function criarTabela(event){
     tdPagamento.textContent = opcao5;
     tdTotal.textContent = formataReais(valorTotal);
 
+    tdNome.textContent = nome;
+
     var tabelaCorpo = document.querySelector("#tabela-corpo");
     var trTabelaCorpo = document.createElement("tr");
 
     tabelaCorpo.appendChild(trTabelaCorpo);
 
     trTabelaCorpo.appendChild(tdId);
+    trTabelaCorpo.appendChild(tdNome);
     trTabelaCorpo.appendChild(tdEntrada);
     trTabelaCorpo.appendChild(tdPrincipal);
     trTabelaCorpo.appendChild(tdBebidas);
     trTabelaCorpo.appendChild(tdSobremesa);
     trTabelaCorpo.appendChild(tdPagamento);
     trTabelaCorpo.appendChild(tdTotal);
-    
 }
 
 function mostraImagem(entrada,divEntrada){
@@ -155,4 +165,14 @@ function ajustarTexto(entrada){
 function formataReais(valor){
     var conversao = valor.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     return conversao;
+}
+
+function leNome() {
+    var nome = document.getElementById("inserir-nome");
+
+    return(nome.value);
+}
+
+function leQuantidade() {
+    var quantidade = 0;
 }

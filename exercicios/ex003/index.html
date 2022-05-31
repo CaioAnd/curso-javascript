@@ -26,6 +26,17 @@
     <main>
         <article>
             <div class="container">
+                <h2 id="bemVindo">Seja bem vindo</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Insira seu nome para fazer o pedido</label>
+                        <input type="text" class="form-control" id="inserir-nome" aria-describedby="emailHelp" placeholder="Insira aqui seu nome" required>
+                    </div>
+                </form>
+            </div>
+        </article>
+        <article>
+            <div class="container">
                 <div class="row justify-content-evenly">
                     <div id="divEntrada" class="card col-12 col-md-3 col-lg-3 mt-3">
                         <img src="img/entrada.jpg" class="card-img-top imagem" alt="...">
@@ -38,6 +49,11 @@
                                 <option value="2.00">#002 - Shimeji - R$ 2,00</option>
                                 <option value="12.00">#003 - Guioza - R$ 12,00</option>
                             </select>
+                            <form>
+                                <div class="mb-3 mt-2">
+                                    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Quantidade" id="entradaQuantidade" required>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div id="divPrincipal" class="card col-12 col-md-3 col-lg-3 mt-3">
@@ -51,6 +67,11 @@
                                 <option value="18.00">#005 - Sashimi - R$ 18,00</option>
                                 <option value="23.00">#006 - Temaki - R$ 23,00</option>
                             </select>
+                            <form>
+                                <div class="mb-3 mt-2">
+                                    <input type="text" class="form-control" id="principalQuantidade" aria-describedby="emailHelp" placeholder="Quantidade" required>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div id="divBebidas" class="card col-12 col-md-3 col-lg-3 mt-3">
@@ -64,6 +85,11 @@
                                 <option value="10.00">#008 - Shochu - R$ 10,00</option>
                                 <option value="20.00">#009 - Umeshu - R$ 20,00</option>
                             </select>
+                            <form>
+                                <div class="mb-3 mt-2">
+                                    <input type="text" class="form-control" id="bebidasQuantidade" aria-describedby="emailHelp" placeholder="Quantidade" required>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -79,12 +105,17 @@
                                 <option value="7.00">#011 - Daifuku - R$ 7,00</option>
                                 <option value="2.00">#012 - Warabi mochi - R$ 2,00</option>
                             </select>
+                            <form>
+                                <div class="mb-3 mt-2">
+                                    <input type="text" class="form-control" id="sobremesaQuantidade" aria-describedby="emailHelp" placeholder="Quantidade" required>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="card col-12 col-md-3 col-lg-3 mt-3">
                         <img src="img/pagamento.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Forma de pagamnto</h5>
+                            <h5 class="card-title">Forma de pagamento</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <select id="pagamento" class="form-select" aria-label="Default select example">
                                 <option value="0" selected>À vista</option>
