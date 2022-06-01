@@ -64,7 +64,21 @@ function criarTabela(event){
         x++;
     }
 
-    //Começa por aqui, calcular quantidade
+    quantidade1 = document.getElementById("entradaQuantidade");
+    quantidade2 = document.getElementById("principalQuantidade");
+    quantidade3 = document.getElementById("bebidasQuantidade");
+    quantidade4 = document.getElementById("sobremesaQuantidade");
+
+    quantidade1 = quantidade1.value;
+    quantidade2 = quantidade2.value;
+    quantidade3 = quantidade3.value;
+    quantidade4 = quantidade4.value;
+
+    valor1 = valor1 * quantidade1;
+    valor2 = valor2 * quantidade2;
+    valor3 = valor3 * quantidade3;
+    valor4 = valor4 * quantidade4;
+    
 
     var valorTotal = parseFloat(valor1 + valor2 + valor3 + valor4);
 
@@ -81,12 +95,10 @@ function criarTabela(event){
 
     tdId.textContent = id;
 
-    opcao1 = ajustarTexto(opcao1);
-    tdEntrada.textContent = opcao1;
-
-    tdPrincipal.textContent = ajustarTexto(opcao2);
-    tdBebidas.textContent = ajustarTexto(opcao3);
-    tdSobremesa.textContent = ajustarTexto(opcao4);
+    tdEntrada.textContent = validaQuantidade(opcao1,quantidade1);
+    tdPrincipal.textContent = validaQuantidade(opcao2,quantidade2);
+    tdBebidas.textContent = validaQuantidade(opcao3,quantidade3);
+    tdSobremesa.textContent = validaQuantidade(opcao4,quantidade4);
     tdPagamento.textContent = opcao5;
     tdTotal.textContent = formataReais(valorTotal);
 
@@ -105,9 +117,42 @@ function criarTabela(event){
     trTabelaCorpo.appendChild(tdSobremesa);
     trTabelaCorpo.appendChild(tdPagamento);
     trTabelaCorpo.appendChild(tdTotal);
-}
 
-function mostraImagem(entrada,divEntrada){
+
+    //Limpando opções
+
+    //Nome
+    document.getElementById("inserir-nome").value = ""; 
+
+    //Entrada
+    document.getElementById("entrada").selectedIndex = 0;
+    document.getElementById("entradaQuantidade").value = "";
+    document.getElementById("entradaQuantidade").removeAttribute("enabled", "");
+    document.getElementById("entradaQuantidade").setAttribute("disabled", "");
+
+    //Principal
+    document.getElementById("principal").selectedIndex = 0;
+    document.getElementById("principalQuantidade").value = "";
+    document.getElementById("principalQuantidade").removeAttribute("enabled", "");
+    document.getElementById("principalQuantidade").setAttribute("disabled", "");
+
+    //Bebidas
+    document.getElementById("bebidas").selectedIndex = 0;
+    document.getElementById("bebidasQuantidade").value = "";
+    document.getElementById("bebidasQuantidade").removeAttribute("enabled", "");
+    document.getElementById("bebidasQuantidade").setAttribute("disabled", "");
+
+    //Sobremesa
+    document.getElementById("sobremesa").selectedIndex = 0;
+    document.getElementById("sobremesaQuantidade").value = "";
+    document.getElementById("sobremesaQuantidade").removeAttribute("enabled", "");
+    document.getElementById("sobremesaQuantidade").setAttribute("disabled", "");
+
+    //Forma de pagamento
+    document.getElementById("pagamento").selectedIndex = 0;
+}   
+
+function mostraImagem(entrada,divEntrada,quantidade){
 
     var imagem = divEntrada.querySelector(".imagem");
 
@@ -115,43 +160,80 @@ function mostraImagem(entrada,divEntrada){
 
     if (chars[0] == "#001 ") {
         imagem.src="img/rolinho-primavera.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#002 ") {
         imagem.src="img/shimeji.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#003 ") {
         imagem.src="img/guioza.webp";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#004 ") {
         imagem.src="img/sushi.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#005 ") {
         imagem.src="img/sashimi.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#006 ") {
         imagem.src="img/temaki.webp";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#007 ") {
         imagem.src="img/amazake.jpeg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#008 ") {
         imagem.src="img/shochu.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#009 ") {
         imagem.src="img/umeshu.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#010 ") {
         imagem.src="img/taiyaki.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#011 ") {
         imagem.src="img/daifuku.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else if (chars[0] == "#012 ") {
         imagem.src="img/warabi-mochi.jpg";
+        quantidade.removeAttribute("disabled", "");
+        quantidade.setAttribute("enabled", "");
     }
     else{
         imagem.src="img/nenhum.jpg";
+        quantidade.removeAttribute("enabled", "");
+        quantidade.setAttribute("disabled", "");
     }
+}
+
+function validaQuantidade(opcao,quantidade){
+    
+    if (quantidade == 0) {
+        return("Nenhum");
+    }
+    else {
+        return(ajustarTexto(opcao) + " x" + quantidade);
+    }
+
 }
 
 function ajustarTexto(entrada){
