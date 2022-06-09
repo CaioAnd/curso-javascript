@@ -16,20 +16,20 @@ botaoAdicionar.addEventListener("click", function(event){
         return;
     }
 
-    // Criando a td e a tr do paciente
-    
-    var pacienteTr = montaTr(paciente);
-    
-
     // Adicionando o paciente na tabela
-    var tabela = document.querySelector("#tabela-pacientes");
-
-    tabela.appendChild(pacienteTr);
+    adicionaPacienteNaTabela(paciente);
 
     form.reset();
     var mensagensErro = document.querySelector("#mensagens-erro");
     mensagensErro.innerHTML = "";
 });
+
+function adicionaPacienteNaTabela(paciente) {
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+
+    tabela.appendChild(pacienteTr);
+}
 
 function exibeMensagemDeErro(erros){
     var ul = document.querySelector("#mensagens-erro");
@@ -60,7 +60,7 @@ function obtemPacienteDoFormulario(form){
 
 function montaTr(paciente){
 
-    //Criando base da tablea vazia
+    //Criando base da tabela vazia
     var pacienteTr = document.createElement("tr");
 
     var nomeTd = document.createElement("td");
@@ -68,6 +68,15 @@ function montaTr(paciente){
     var alturaTd = document.createElement("td");
     var gorduraTd = document.createElement("td");
     var imcTd = document.createElement("td");
+
+    //Adicionando classes a tabela
+    pacienteTr.classList.add("paciente");
+
+    nomeTd.classList.add("info-nome");
+    pesoTd.classList.add("info-peso");
+    alturaTd.classList.add("info-altura");
+    gorduraTd.classList.add("info-gordura");
+    imcTd.classList.add("info-imc");
 
     //Adicionando conteúdo a tabela 
     nomeTd.textContent = paciente.nome;

@@ -3,14 +3,30 @@ var campoFiltro = document.querySelector("#filtrar-tabela");
 campoFiltro.addEventListener("input", function(){
     console.log(this.value);
     var pacientes = document.querySelectorAll(".paciente");
-    for (var i = 0; i < pacientes.length; i++) {
-        var paciente = pacientes[i];
-        var tdNome = paciente.querySelector(".info-nome");
-        var nome = paciente.textContent;
-        if (nome != this.value) {
-            paciente.classList.add("invisivel");
-        }else{
+
+    if (this.value.length > 0) { //Caso escreva algo
+        
+        for (var i = 0; i < pacientes.length; i++) {
+            var paciente = pacientes[i];
+            var tdNome = paciente.querySelector(".info-nome");
+            var nome = tdNome.textContent;
+
+            //Buscando mesmo estando com letras maiúsculas ou minúsculas
+            var expressao = new RegExp(this.value,"i");
+
+            if (!expressao.test(nome)) {
+                paciente.classList.add("invisivel");
+            }else{
+                paciente.classList.remove("invisivel");
+            }
+        }
+
+    }else { //Caso esteja vazio, mostrar pacientes
+        for (var i = 0; i < pacientes.length; i++) {
+            var paciente = pacientes[i];
             paciente.classList.remove("invisivel");
         }
     }
+
+    
 });
