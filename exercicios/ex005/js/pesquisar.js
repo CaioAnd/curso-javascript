@@ -2,7 +2,10 @@ validaData();
 
 var form = document.querySelector("form");
 
-form.addEventListener("input", function(){
+form.addEventListener("submit", function(event){
+    
+    //Para função de recarregar página
+    event.preventDefault();
 
     //Lendo a data
     var data = document.getElementById("data");

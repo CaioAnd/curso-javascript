@@ -2,14 +2,19 @@ validaData();
 
 var form = document.querySelector("form");
 
-form.addEventListener("input", function(){
+form.addEventListener("submit", function(event){
+    
+    //Para função de recarregar página
+    event.preventDefault();
 
     //Lendo a data
-    var data = document.getElementById("data");
+    var dataInicial = document.getElementById("data-inicial");
+    var dataFinal = document.getElementById("data-final");
+    var key = document.getElementById("key");
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://api.nasa.gov/planetary/apod?api_key=hnyiwSQKvTg5st8BQZtMgzciytoUggU9IDUei8zb&date=" +data.value);
+    xhr.open("GET", "https://api.nasa.gov/neo/rest/v1/feed?start_date=" + dataInicial.value + "&end_date=" + dataFinal.value + "&api_key=" + key.value);
 
     xhr.addEventListener("load", function(){
         var resposta = xhr.responseText;
