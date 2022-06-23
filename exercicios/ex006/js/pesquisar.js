@@ -14,31 +14,14 @@ form.addEventListener("submit", function(event){
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://api.nasa.gov/neo/rest/v1/feed?start_date=" + dataInicial.value + "&end_date=" + dataFinal.value + "&api_key=" + key.value);
+    xhr.open("GET", "https://api.nasa.gov/neo/rest/v1/feed?start_date=" + dataInicial.value + "&end_date=" + dataFinal.value + "&api_key=hnyiwSQKvTg5st8BQZtMgzciytoUggU9IDUei8zb");
 
     xhr.addEventListener("load", function(){
         var resposta = xhr.responseText;
         var array = JSON.parse(resposta); //Parseia e converte string em obj
 
-        console.log( array);
+        criaTabela(array);
 
-        //Inserindo imagem
-        var imagem = document.getElementById("imagem");
-        imagem.src = array.hdurl;
-
-        //Inserindo titulo
-        var titulo = document.getElementById("titulo");
-        titulo.textContent = array.title;
-
-        //Inserindo decrição
-        var descricao = document.getElementById("descricao");
-        descricao.textContent = array.explanation;
-
-        //Inserindo Copyright
-        var copyright = document.getElementById("copyright");
-        copyright.textContent = array.copyright;
-
-        console.log(titulo);
     });
 
     xhr.send();
